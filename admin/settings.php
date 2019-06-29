@@ -54,8 +54,8 @@ session_start();
 <br>
   
 <div class="container">
-
-        <div class="col-lg-6 col-md-6 col-sm-10 col-10 d-block m-auto">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
           <div class="card shadow p-4 mb-4 bg-white">
               <form action="settings.php" method="POST">
                 Current Password:<input type="password" name="cpass" class="form-control"><br>
@@ -65,7 +65,7 @@ session_start();
               </form>
           </div>
         </div>
-
+      </div>
         <?php
 
             if(isset($_POST['submit']))

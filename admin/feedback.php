@@ -9,8 +9,11 @@ session_start();
 
   $displayqry = "SELECT * FROM attendance";
   $result = $mysqli->query($displayqry) or die(error.__LINE__);
-
   $cnt = mysqli_num_rows($result);
+
+  $qry = "SELECT * FROM questions";
+  $res = $mysqli->query($qry) or die(error.__LINE__);
+  $count = mysqli_num_rows($res);
 
 ?>
 <!DOCTYPE html>
@@ -60,13 +63,98 @@ session_start();
 <br>
   
 <div class="container">
-  <h5>Welcome , <strong>Admin</strong></h5>
+  <h5>Welcome , <strong>Admin</strong>
+
+  <button type="button" class="btn btn-outline-info float-right" data-toggle="modal" data-target="#myModal">View Questions</button></h5>
+
   <p>Type something in the input field to search:</p>
+
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
   <br>
+
+  <div class="modal" id="myModal">
+
+      <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+
+            <h4 class="modal-title">List of Questions</h4>
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          </div>
+
+          <div class="modal-body">
+
+          <table class="table table-bordered table-striped table-responsive w-100 d-block d-md-table">
+
+            <thead>
+
+              <th class="text-center">#</th>
+
+              <th class="text-center">Question</th>
+
+              <th class="text-center">Option 1</th>
+
+              <th class="text-center">Option 2</th>
+
+              <th class="text-center">Option 3</th>
+
+              <th class="text-center">Option 4</th>
+
+            </thead>
+
+            <tbody id="myTable">
+
+              <?php
+
+                for($i=0;$i<$count;$i=$i+1)
+
+                {
+
+                  $q_row = $res->fetch_assoc();
+
+                  ?>
+
+                <tr>
+
+                  <td class="text-center"><?php echo $i+1 ?></td>
+
+                  <td class="text-center"><?php echo $q_row['question'] ?></td>
+
+                  <td class="text-center"><?php echo $q_row['opt1'] ?></td>
+
+                  <td class="text-center"><?php echo $q_row['opt2'] ?></td>
+
+                  <td class="text-center"><?php echo $q_row['opt3'] ?></td>
+
+                  <td class="text-center"><?php echo $q_row['opt4'] ?></td>
+
+                </tr>
+
+                <?php
+
+                  }
+
+              ?>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
   <table class="table table-bordered table-striped table-responsive w-100 d-block d-md-table">
             <thead>
-              <th class="text-center">S/N</th>
+              <th class="text-center">#</th>
               <th class="text-center">Student Details</th>
               <th class="text-center">Feedback</th>
             </thead>
@@ -77,14 +165,16 @@ session_start();
         $row = $result->fetch_assoc();
         ?>
       <tr>
-        <td class="text-center"><?php echo $i+1 ?></td>
+        <td rowspan="2" class="text-center"><?php echo $i+1 ?></td>
         <td class="text-left">
-          Student Id : <b><?php echo $row['stud_id'] ?></b><br>
+          Id : <b><?php echo $row['stud_id'] ?></b><br>
           Name : <b><?php echo $row['name'] ?></b><br>
           USN : <b><?php echo $row['usn'] ?></b><br>
           Email : <b><?php echo $row['email'] ?></b><br>
+          Private Email : <b><?php echo $row['pvt_email'] ?></b><br>
           Mobile : <b><?php echo $row['mobile'] ?></b><br>
           Department : <b><?php echo $row['dept'] ?></b><br>
+	  Attending : <b><?php echo $row['attending'] ?></b><br>
         </td>
         <td class="text-left">
           <b>Q1. <?php echo $row['q1'] ?></b><br>
@@ -97,9 +187,10 @@ session_start();
              Ans. <?php echo $row['a4'] ?><br>
           <b>Q5. <?php echo $row['q5'] ?></b><br>
              Ans. <?php echo $row['a5'] ?><br>
-          <b>Feedback : </b><br>
-            <?php echo $row['feedback'] ?>
         </td>
+      </tr>
+      <tr>
+	<td colspan="2"><b>Feedback : </b> <?php echo $row['feedback'] ?></td>
       </tr>
       <?php
         }

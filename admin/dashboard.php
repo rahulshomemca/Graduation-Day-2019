@@ -231,7 +231,7 @@
 
             $mail->addAddress($email);
 
-            $mail->addReplyTo('rahulshomernp@gmail.com');
+            $mail->addReplyTo('graduationday2019@rvce.edu.in');
 
 
 
@@ -285,7 +285,7 @@
 
             <thead>
 
-              <th class="text-center">SL.NO</th>
+              <th class="text-center">#</th>
 
               <th class="text-center">Name</th>
 
@@ -294,6 +294,8 @@
               <th class="text-center">Department</th>
 
               <th class="text-center">Email</th>
+
+	      <th class="text-center">Edit</th>
 
               <th class="text-center">Delete</th>
 
@@ -325,20 +327,41 @@
 
         <td class="text-center">
 
+          <form action="update.php" method="POST">
+
+            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+
+            <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
+
+            <input type="hidden" name="usn" value="<?php echo $row['usn'] ?>">
+
+            <input type="hidden" name="dept" value="<?php echo $row['dept'] ?>">
+
+            <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
+
+            <input type="hidden" name="hash" value="<?php echo $row['hash'] ?>">
+
+            <button type="submit" class="btn btn-warning"><i class="fas fa-external-link-alt"></i></button>
+
+          </form>
+
+        </td>
+
+        <td class="text-center">
+
           <form action="delete.php" method="POST">
 
             <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
-	    <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
+            <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
 
-            <input type="submit" value="Delete" class="btn btn-danger">
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
 
           </form>
 
         </td>
 
       </tr>
-
       <?php
 
         }

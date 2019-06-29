@@ -1,3 +1,3 @@
 <?php 
-	define("API_KEY", 'ORe7ei0Jx5E-SxcRnRwNrhFitK4KGPTCXMKjmgXWFo');
- ?>
+	define("API_KEY", 'ORe7ei0Jx5E-zVy5mAvk0TnbA7aWfm6zFSyzWBPO7W');
+?>

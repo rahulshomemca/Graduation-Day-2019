@@ -12,8 +12,6 @@ require('credential.php');
 
 date_default_timezone_set('Asia/Kolkata');
 
-$tm = (int)date('G');
-
 ?>
 
 
@@ -52,35 +50,15 @@ $tm = (int)date('G');
 
 <br>
 
-<div class="container testimonial-con">
+<div class="container">
+  <div class="row">
 
 
-
-        <div class="col-lg-6 col-md-6 col-sm-12 col-10 d-block m-auto">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
 
           <div class="card shadow p-4 mb-4 bg-white">
 
             <?php
-
-              if($tm > 21 || $tm < 9){
-
-                ?>  <br>
-
-                  <div class="container">
-
-                    <div class="alert alert-danger text-center">
-
-                    Link is active between 9 am to 9 pm only !!
-
-                    </div>
-
-                  </div>
-
-                <?php
-
-              }
-
-              else{
 
               $email = $_GET['email'];
 
@@ -118,7 +96,7 @@ $tm = (int)date('G');
 
               {
 
-                $qry = "SELECT * FROM `attendance` WHERE `email`='$email';";
+                $qry = "SELECT * FROM `attendance` WHERE `email`='$email' AND `a1` <> '';";
 
                 $res = $mysqli->query($qry) or die(error.__LINE__);
 
@@ -147,7 +125,10 @@ $tm = (int)date('G');
                 else
 
                 {
-
+		  $qry = "UPDATE graduates SET mobile='', pvt_email='' WHERE email='$email';";
+		  $res = $mysqli->query($qry) or die($mysqli->error);
+	          $qry = "DELETE FROM `attendance` WHERE `email`='$email';";
+                  $res = $mysqli->query($qry) or die(error.__LINE__);
                   ?>
 
                     <h4 class="text-center text-info">Welcome, <?php echo $row['name']?></h4>
@@ -155,15 +136,16 @@ $tm = (int)date('G');
                     <p class="text-center text-info"><b>USN : <?php echo $row['usn']?><br>Dept : <?php echo $row['dept']?></b></p><br>
 
                     <form action="" method="POST">
-
+		    <div id="mobile_no">
                       <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile No." onkeyup="valid();" id="mobile"><br>
 
                       <input type="submit" name="submit" value="Send OTP" class="btn btn-info btn-block"><br>
-
+		    </div>
+	     	    <div id="otp_valid" style="display: none;">
                       <input type="text" name="otp" class="form-control" placeholder="Enter OTP"><br>
 
                       <input type="submit" name="otpverify" value="Verify OTP" class="btn btn-success btn-block">
-
+		    </div>
                     </form>
 
                   <?php
@@ -205,16 +187,27 @@ $tm = (int)date('G');
                       else
 
                       {
+			echo '<script type="text/javascript">
+
+                                $(document).ready(function(){
+
+                                  $("#otp_valid").show();
+
+                                  $("#mobile_no").hide();
+
+                                });
+
+                              </script>';
 
                         $textlocal = new Textlocal(false, false, API_KEY);
 
                         $numbers = array($_POST['mobile']);
 
-                        $sender = 'TXTLCL';
+                        $sender = 'RVCEGD';
 
                         $otp = mt_rand(100000, 999999);
 
-                        $message = "Hello " . $row['name'] . " This is your OTP: " . $otp;
+                        $message = "Hello ".$row['name']." . This is your OTP: ".$otp;
 
                         try {
 
@@ -230,7 +223,7 @@ $tm = (int)date('G');
 
                         ?>  
 
-                          <br><p class="text-success text-center">OTP sent to <?php echo $mobile?>!!</p>
+                          <br><p class="text-success text-center">OTP sent to <?php echo $mobile?></p>
 
                         <?php                       
 
@@ -273,7 +266,17 @@ $tm = (int)date('G');
                       $qry = "UPDATE graduates SET mobile='$mobile' WHERE email = '$email'";
 
                       $res = $mysqli->query($qry) or die(error.__LINE__);
+		      echo '<script type="text/javascript">
 
+                                $(document).ready(function(){
+
+                                  $("#otp_valid").show();
+
+                                  $("#mobile_no").hide();
+
+                                });
+
+                              </script>';
                       ?>
 
                         <br><p class="text-success text-center">OTP verifed successfully , Redirecting ... !!</p>
@@ -288,17 +291,24 @@ $tm = (int)date('G');
 
                             $_SESSION['dept'] = $row['dept'];
 
-                        ?>
-
-                        <meta http-equiv="refresh" content="1; URL='response.php'" />
-
-                      <?php
+			    header('location:nad.php');
 
                     }
 
                     else
 
                     {
+		      echo '<script type="text/javascript">
+
+                                $(document).ready(function(){
+
+                                  $("#otp_valid").show();
+
+                                  $("#mobile_no").hide();
+
+                                });
+
+                              </script>';
 
                       ?>  
 
@@ -314,8 +324,6 @@ $tm = (int)date('G');
 
               }
 
-            }
-
             ?>
 
 
@@ -323,7 +331,7 @@ $tm = (int)date('G');
           </div>
 
         </div>
-
+</div>
 </div>
 
 </body>

@@ -25,9 +25,9 @@ if(isset($_SESSION['hash']))
 <br>
 <br>
 <br>
-<div class="container testimonial-con">
-
-        <div class="col-lg-6 col-md-6 col-sm-10 col-10 d-block m-auto">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
           <div class="card shadow p-4 mb-4 bg-white">
             <h2 class="text-center text-info">Admin Login</h2><br>
 
@@ -40,6 +40,7 @@ if(isset($_SESSION['hash']))
               </form>
           </div>
         </div>
+   </div>
 </div>
 <?php
 
@@ -70,9 +71,7 @@ if(isset($_SESSION['hash']))
           
           $hash = $row['hash'];
           $_SESSION['hash'] = $hash;
-          ?>
-              <meta http-equiv="refresh" content="0; URL='dashboard.php'" />
-          <?php
+          header("location: dashboard.php");
           
         }
         else

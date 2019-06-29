@@ -22,7 +22,10 @@ session_start();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container mt-4 p-3">
+<div class="container mt-3">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-12 col-12 d-block m-auto">
+<div class="card shadow p-4 mb-4 bg-white">
   <h3 class="text-info text-center">Graduation Day 2019</h3><hr>
   <h5 class="text-info">Welcome , <strong><?php echo $_SESSION['name'];?></strong></h5>
   <hr>
@@ -31,9 +34,10 @@ session_start();
     <input type="radio" id='yes' name="answer" value="yes" class="ml-4"> Yes<br>
     <input type="radio" name="answer" value="no" class="ml-4"> No<br>
     <div id="people" style='display:none'>
-      <b>2. How many people are coming along with you ?</b>
+      <b>2. How many people are coming with you ?</b>
       <select name="people">
-        <option value="1">1</option>
+        <option value="0">0</option>
+	<option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
@@ -50,6 +54,7 @@ session_start();
       $dept = $_SESSION['dept'];
       $mobile = $_SESSION['mobile'];
       $attending = $_POST['answer'];
+      $pvt_email = $_SESSION['pvt_email'];
       if($attending == 'no'){
         $people = 0;
       }
@@ -60,12 +65,16 @@ session_start();
       $query = "DELETE from attendance WHERE email = '$email'";
       $res = $mysqli->query($query) or die($mysqli->error);
 
-      $query = "INSERT into attendance(name, usn, dept, mobile, email, attending, people) values('$name','$usn','$dept','$mobile','$email','$attending','$people')";
+      $query = "INSERT into attendance(name, usn, dept, mobile, email, attending, people, pvt_email) values('$name','$usn','$dept','$mobile','$email','$attending','$people','$pvt_email')";
       $res = $mysqli->query($query) or die($mysqli->error);
       header("location: feedback.php");
 
     }
   ?>
+</div>
+</div>
+</div>
+</div>
 <script type="text/javascript">
 $(document).ready(function() {
    $('input[type="radio"]').click(function() {

@@ -7,7 +7,7 @@ session_start();
     header('location:index.php');
   }
 
-  $displayqry = "SELECT * FROM attendance";
+  $displayqry = "SELECT * FROM attendance WHERE attending = 'yes'";
   $result = $mysqli->query($displayqry) or die(error.__LINE__);
 
   $cnt = mysqli_num_rows($result);
@@ -64,12 +64,12 @@ session_start();
   <form method="post" action="export.php" align="right">  
        <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
   </form>
-  <p>Type something in the input field to search:</p>
+  <p>Type something in the input field to search: (<span class="text-info">showing only people who selected to attend</span>, <span class="text-success">but CSV export file contails all records</span>)</p>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
   <table class="table table-bordered table-striped table-responsive w-100 d-block d-md-table">
             <thead>
-              <th class="text-center">SL.NO</th>
+              <th class="text-center">#</th>
               <th class="text-center">Student ID</th>
               <th class="text-center">Name</th>
               <th class="text-center">USN</th>

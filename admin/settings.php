@@ -58,14 +58,12 @@ session_start();
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
           <div class="card shadow p-4 mb-4 bg-white">
               <form action="settings.php" method="POST">
-                Current Password:<input type="password" name="cpass" class="form-control"><br>
-                New Password:<input type="password" name="npass" class="form-control"><br>
-                Confirm New Password:<input type="password" name="cnpass" class="form-control"><br> 
-                <input type="submit" name="submit" value="Update" class = "btn btn-info">
+                Current Password:<input type="password" name="cpass" class="form-control" value="<?php echo $_POST['cpass'] ?>" required><br>
+                New Password:<input type="password" name="npass" class="form-control" value="<?php echo $_POST['npass'] ?>" required><br>
+                Confirm New Password:<input type="password" name="cnpass" class="form-control" value="<?php echo $_POST['cnpass'] ?>" required><br> 
+                <input type="submit" name="submit" value="Update" class = "btn btn-info btn-block">
               </form>
-          </div>
-        </div>
-      </div>
+        <br>
         <?php
 
             if(isset($_POST['submit']))
@@ -84,28 +82,12 @@ session_start();
               $cnwpass = $_POST['cnpass'];
 
               if($nwpass == '' || $cnwpass == '' || $current_pass == ''){
-                ?>
-                  <br>
-                  <div class="container">
-                    <div class="alert alert-danger">
-                    <strong>Error!</strong> Fields Cannot be Blank !!
-                    <meta http-equiv="refresh" content="1; URL='settings.php'" />
-                    </div>
-                  </div>
-                <?php
+                echo "<p class='text-center text-danger'>Please fill all the fields!!</p>";
               }
               else{
 
                 if($nwpass != $cnwpass){
-                   ?>
-                      <br>
-                      <div class="container">
-                        <div class="alert alert-danger">
-                        <strong>Error!</strong> Both Password Should Match!!
-                        <meta http-equiv="refresh" content="1; URL='settings.php'" />
-                        </div>
-                      </div>
-                  <?php
+                   echo "<p class='text-center text-danger'>Both password should match!!</p>";
                 }
                 else
                 {
@@ -118,28 +100,13 @@ session_start();
                     $result = $mysqli->query($qry) or die(error.__LINE__);
                     if($result == true)
                     {
-                      ?>
-                        <br>
-                        <div class="container">
-                          <div class="alert alert-success">
-                          <strong>Sucsess!!</strong> Password Sucessfully Changed !!
-                          <meta http-equiv="refresh" content="1; URL='settings.php'" />
-                          </div>
-                        </div>
-                      <?php
+                      echo "<p class='text-center text-success'>Password changed successfully</p>";
+                      header( "refresh:0.5;url=settings.php" );
                     }
                   }
                   else
                   {
-                    ?>
-                        <br>
-                        <div class="container">
-                          <div class="alert alert-danger">
-                          <strong>Error!!</strong> Current Password Doesn't Match !!
-                          <meta http-equiv="refresh" content="1; URL='settings.php'" />
-                          </div>
-                        </div>
-                      <?php
+                    echo "<p class='text-center text-danger'>Current password doesn't matched!!</p>";
                   }
                 }
               }
@@ -149,6 +116,8 @@ session_start();
 
         ?>
 </div>
-
+</div>
+</div>
+</div>
 </body>
 </html>

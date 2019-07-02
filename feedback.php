@@ -59,17 +59,17 @@
         ?>
         <b><?php echo $i.". "; echo $row['question'];?></b>
         <input type="hidden" name="q<?php echo $i?>" value="<?php echo $row['question']?>"><br>
-        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt1']?>" class="ml-4"> <?php echo $row['opt1']?><br>
-        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt2']?>" class="ml-4"> <?php echo $row['opt2']?><br>
-        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt3']?>" class="ml-4"> <?php echo $row['opt3']?><br>
-        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt4']?>" class="ml-4"> <?php echo $row['opt4']?><hr>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt1']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt1']) echo "checked";?>> <?php echo $row['opt1']?><br>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt2']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt2']) echo "checked";?>> <?php echo $row['opt2']?><br>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt3']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt3']) echo "checked";?>> <?php echo $row['opt3']?><br>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt4']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt4']) echo "checked";?>> <?php echo $row['opt4']?><hr>
       <?php
         }
     ?>
     <b>Feedback </b><i>(if any)</i>:<br><br>
     <textarea class="form-control" rows="4" name="feedback"><?php echo $_POST['feedback']?></textarea><br>
     <input type="submit" name="submit" value="Finish" id="finish" class="btn btn-info mt-2" onclick="process();">
-    <button id="wait" style="display: none;" class="btn btn-success btn-block">Submitting your feedback, Please Wait...</button>
+    <button id="wait" style="display: none;" class="btn btn-success btn-block">Submitting your feedback...</button>
   </form>
   </form>
   <?php

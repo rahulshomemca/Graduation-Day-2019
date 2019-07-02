@@ -154,9 +154,8 @@ session_start();
     </div>
   <table class="table table-bordered table-striped table-responsive w-100 d-block d-md-table">
             <thead>
-              <th class="text-center">#</th>
-              <th class="text-center">Student Details</th>
-              <th class="text-center">Feedback</th>
+              <th class="text-center">#</th> 
+              <th class="text-center" colspan="2">Student and feedback details</th>
             </thead>
     <tbody id="myTable">
     <?php
@@ -165,7 +164,7 @@ session_start();
         $row = $result->fetch_assoc();
         ?>
       <tr>
-        <td rowspan="2" class="text-center"><?php echo $i+1 ?></td>
+        <td class="text-center"><?php echo $i+1 ?></td>
         <td class="text-left">
           Id : <b><?php echo $row['stud_id'] ?></b><br>
           Name : <b><?php echo $row['name'] ?></b><br>
@@ -175,22 +174,15 @@ session_start();
           Mobile : <b><?php echo $row['mobile'] ?></b><br>
           Department : <b><?php echo $row['dept'] ?></b><br>
 	  Attending : <b><?php echo $row['attending'] ?></b><br>
+	  <b>Feedback : </b><?php echo $row['feedback'] ?>
         </td>
         <td class="text-left">
-          <b>Q1. <?php echo $row['q1'] ?></b><br>
-             Ans. <?php echo $row['a1'] ?><br>
-          <b>Q2. <?php echo $row['q2'] ?></b><br>
-             Ans. <?php echo $row['a2'] ?><br>
-          <b>Q3. <?php echo $row['q3'] ?></b><br>
-             Ans. <?php echo $row['a3'] ?><br>
-          <b>Q4. <?php echo $row['q4'] ?></b><br>
-             Ans. <?php echo $row['a4'] ?><br>
-          <b>Q5. <?php echo $row['q5'] ?></b><br>
-             Ans. <?php echo $row['a5'] ?><br>
+           A1. - <?php echo $row['a1'] ?><br>
+           A2. - <?php echo $row['a2'] ?><br>
+	   A3. - <?php echo $row['a3'] ?><br>
+	   A4. - <?php echo $row['a4'] ?><br>
+	   A5. - <?php echo $row['a5'] ?><br>
         </td>
-      </tr>
-      <tr>
-	<td colspan="2"><b>Feedback : </b> <?php echo $row['feedback'] ?></td>
       </tr>
       <?php
         }

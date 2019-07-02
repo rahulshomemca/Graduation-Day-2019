@@ -1,4 +1,3 @@
-
 <?php include 'include/dbcon.php';?>
 
 <?php
@@ -47,16 +46,16 @@ session_start();
 
 <div class="container text-center mt-3">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
+<div class="col-lg-8 col-md-8 col-sm-12 col-12 d-block m-auto">
 <div class="card shadow p-4 mb-4 bg-white">
 
 <a href="http://nad.gov.in/"><h3 class="text-dark text-center">National Academic Depository</h3></a><hr>
 
-  <p class="text-secondary">We are inviting you to join <a href="http://nad.gov.in/" target="_blank">National Academic Depository</a> by adding your Private Email Id</p>
+  <p class="text-secondary">We are inviting you to join <a href="http://nad.gov.in/">National Academic Depository</a> by adding your Private Email Id</p>
 
       <form class="form-group" action="nad.php" method="POST">
 
-        <input type="email" name="pvt_email" class="form-control" placeholder="Please enter your private email.." value="<?php echo $_POST['pvt_email']?>" required><br>
+        <input type="email" name="pvt_email" class="form-control" placeholder="Please enter your private email.." value="<?php echo $_POST['pvt_email']?>"><br>
 
         <input type="submit" name="submit" value="Add Private Email" class="btn btn-info">
 
@@ -125,16 +124,13 @@ session_start();
         }
 
       }
-     }
-      else
-     {
-	$alt = "Invalid Email -> ".$pvt_email;
-
-        echo "<script type='text/javascript'>alert('$alt');</script>";
-     }
 
     }
-
+   }
+	else
+{
+	
+}
   ?>
 </div>
 </div>

@@ -38,7 +38,7 @@ date_default_timezone_set('Asia/Kolkata');
 
 </head>
 
-<body>
+<body class="bg-info">
 
 
 
@@ -48,9 +48,9 @@ date_default_timezone_set('Asia/Kolkata');
 
 <br>
 
-<div class="container testimonial-con">
-
-  <div class="col-lg-6 col-md-6 col-sm-12 col-10 d-block m-auto">
+<div class="container">
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
 
     <div class="card shadow p-4 mb-4 bg-white">
 
@@ -138,9 +138,9 @@ date_default_timezone_set('Asia/Kolkata');
 
               $sender = 'RVCEGD';
 
-              $otp = mt_rand(100000, 999999);
+              $otp = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 12);
 
-              $message = "Hello ".$row['username']." . This is your OTP: ".$otp;
+              $message = "Hello Admin, your account recovery OTP is ".$otp;
 
               try {
 
@@ -261,7 +261,7 @@ date_default_timezone_set('Asia/Kolkata');
     </div>
 
   </div>
-
+</div>
 </div>
 
 </body>

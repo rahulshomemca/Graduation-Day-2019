@@ -1,5 +1,5 @@
 <?php
-include('../dbcon.php');
+include('./include/dbcon.php');
 session_start();
 session_destroy();
 header('location:index.php');

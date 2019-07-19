@@ -11,7 +11,27 @@ require('textlocal.class.php');
 require('credential.php');
 
 date_default_timezone_set('Asia/Kolkata');
+$h = (int)date('G');
+$d = (int)date('j');
 
+if($d<18){
+  echo '<script type="text/javascript">alert("Link will start on 18/07/2019 at 11 AM")</script>';
+  header('refresh:0;url=index.php');
+}
+elseif($d==18 && $h<11){
+  echo '<script type="text/javascript">alert("Link will start at 11 AM today")</script>';
+  header('refresh:0;url=index.php');
+}
+elseif($d==23 && $h>22){
+  echo '<script type="text/javascript">alert("Registration closed")</script>';
+  header('refresh:0;url=index.php');
+}
+elseif($d>23){
+  echo '<script type="text/javascript">alert("Registration closed")</script>';
+  header('refresh:0;url=index.php');
+}
+else
+{
 ?>
 
 
@@ -40,7 +60,7 @@ date_default_timezone_set('Asia/Kolkata');
 
 </head>
 
-<body>
+<body class="bg-info">
 
 
 
@@ -206,7 +226,7 @@ date_default_timezone_set('Asia/Kolkata');
 
                         $otp = mt_rand(100000, 999999);
 
-                        $message = "Hello ".$row['name']." . This is your OTP: ".$otp;
+                        $message = "Hello ".$row['name'].", your mobile verification code is ".$otp;
 
                         try {
 
@@ -222,7 +242,7 @@ date_default_timezone_set('Asia/Kolkata');
 
                         ?>  
 
-                          <br><p class="text-success text-center">OTP sent to <?php echo $mobile?></p>
+                          <br><p class="text-success text-center">OTP sent!</p>
 
                         <?php                       
 
@@ -320,6 +340,7 @@ date_default_timezone_set('Asia/Kolkata');
                 }
 
               }
+	     }
 
             ?>
 

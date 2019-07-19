@@ -97,14 +97,6 @@ session_start();
 
               <th class="text-center">Question</th>
 
-              <th class="text-center">Option 1</th>
-
-              <th class="text-center">Option 2</th>
-
-              <th class="text-center">Option 3</th>
-
-              <th class="text-center">Option 4</th>
-
             </thead>
 
             <tbody id="myTable">
@@ -123,15 +115,7 @@ session_start();
 
                   <td class="text-center"><?php echo $i+1 ?></td>
 
-                  <td class="text-center"><?php echo $q_row['question'] ?></td>
-
-                  <td class="text-center"><?php echo $q_row['opt1'] ?></td>
-
-                  <td class="text-center"><?php echo $q_row['opt2'] ?></td>
-
-                  <td class="text-center"><?php echo $q_row['opt3'] ?></td>
-
-                  <td class="text-center"><?php echo $q_row['opt4'] ?></td>
+                  <td class="text-left"><?php echo $q_row['question'] ?></td>
 
                 </tr>
 
@@ -165,8 +149,9 @@ session_start();
         ?>
       <tr>
         <td class="text-center"><?php echo $i+1 ?></td>
-        <td class="text-left">
+        <td class="text-left" width="300">
           Id : <b><?php echo $row['stud_id'] ?></b><br>
+          DB_Id : <b><?php echo $row['id'] ?></b><br>
           Name : <b><?php echo $row['name'] ?></b><br>
           USN : <b><?php echo $row['usn'] ?></b><br>
           Email : <b><?php echo $row['email'] ?></b><br>
@@ -182,6 +167,13 @@ session_start();
 	   A3. - <?php echo $row['a3'] ?><br>
 	   A4. - <?php echo $row['a4'] ?><br>
 	   A5. - <?php echo $row['a5'] ?><br>
+           A6. - <?php echo $row['a6'] ?><br>
+           A7. - <?php echo $row['a7'] ?><br>
+           A8. - <?php echo $row['a8'] ?><br>
+           A9. - <?php echo $row['a9'] ?><br>
+           A10. - <?php echo $row['a10'] ?><br>
+           A11. - <?php echo $row['a11'] ?><br>
+           A12. - <?php echo $row['a12'] ?><br>
         </td>
       </tr>
       <?php

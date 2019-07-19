@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <title>Welcome to RVCE Graduation Day 2019</title>
@@ -9,7 +11,7 @@
 <style>
 body, html {
   height: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inconsolata", sans-serif;
 }
 
 .bgimg {
@@ -25,24 +27,23 @@ body, html {
 </style>
 <body>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-  <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
-  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">HOME</a> 
-  <a href="#inv" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">INVITATION</a> 
-  <a href="#reg" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">REGISTRATION PROCESS</a>
-  <a href="#coc" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">CODE OF CONDUCT</a> 
-  <a href="#ins" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">INSTRUCTIONS</a>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-black w3-xlarge w3-padding-12">
-  <span class="w3-left w3-padding">GRADUATION DAY</span>
-  <a href="javascript:void(0)" class="w3-right w3-button w3-grayscale" onclick="w3_open()">&#9776;</a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s2">
+      <a href="#home" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s4">
+      <a href="#reg" class="w3-button w3-block w3-black">REGISTRATION PROCESS</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#rule" class="w3-button w3-block w3-black">RULES</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#directive" class="w3-button w3-block w3-black">DIRECTIVE</a>
+    </div>
+  </div>
+</div>
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min">
@@ -51,7 +52,7 @@ body, html {
   </div>
   <div class="w3-display-middle w3-center">
   	<img src="./image/rvcelogo.png" style="width: 100px;"><br>
-    <span class="w3-text-white" style="font-size:45px">Graduation Day 2019<br>RV College of Engineering<br></span>
+    <span class="w3-text-white" style="font-size:45px">Graduation Day 2019<br>RV College of Engineering</span>
   </div>
   <div class="w3-display-bottomright w3-center w3-padding-large w3-hide-small">
     <span class="w3-tag">RV College of Engineering</span>
@@ -65,44 +66,37 @@ body, html {
 <div class="w3-container" id="home">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOME</span></h5>
-    <p>Graduation Ceremony of 2015-2019 (BE), 2014-2019 (B.Arch), 2016-2019 (MCA) and 2017-2019 (M.Tech)  passing out batch of autonomous scheme is scheduled for July 27th 2019. We would appreciate your presence on this occasion to receive the graduation honors in person. Kindly intimate your willingness to participate in this momentous occasion by registering on-line http://gd.rvce.edu.in The registration for BE and B.Arch will be opened from 18.07.2019 11:00 AM to 23.07.2019 10.00 PM</p>
+    <p>Graduation Ceremony of 2015-2019 (BE), 2014-2019 (B.Arch), 2016-2019 (MCA) and 2017-2019 (M.Tech)  passing out batch of autonomous scheme is scheduled for July 27th 2019. We would appreciate your presence on this occasion to receive the graduation honors in person. Kindly intimate your willingness to participate in this momentous occasion by registering on-line http://gd.rvce.edu.in The registration will be opened from 18.07.2019 11:00 AM to 23.07.2019 10.00 PM</p>
     <p>Due to unavoidable circumstance if you are unable to attend, the Provisional Degree Certificates in absentia will be issued from 1st August 2019 onward to Graduate students or Authorized person (Authorization should be given in writing by Graduate students).</p>
     <div class="w3-panel w3-leftbar w3-light-grey">
       <p><i>With best wishes for a bright future as a RVCE alumnus.</i></p>
       <p>Principal , RV College of Engineering</p>
     </div>
+    <p><strong>Opening hours:</strong> --/--/----</p>
+    <p><strong>Address:</strong> RV College of Engineering</p>
   </div>
 </div>
 
 <!-- Invitaion -->
-<div class="w3-container" id="inv">
+<div class="w3-container" id="reg">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INVITATION</span></h5>
     <div class="w3-panel w3-leftbar w3-light-grey">
       <h2 class="w3-center">Graduation Day 2019 Invitation</h2>
-      <p class="w3-center"><a href="./documents/GraduationDayInvitation2019.pdf" target="_blank" class="w3-center">Click Here</a></p><hr>
-    </div>
-  </div>
-</div>
-
-
-<!-- Registration -->
-<div class="w3-container" id="reg">
-  <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">REGISTRATION PROCESS</span></h5>
-    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p class="w3-center"><a href="./image/GraduationDayInvitation2019.pdf" target="_blank" class="w3-center">Click Here</a></p>
+      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">PROCESS OF REGISTRATION</span></h5>
       <p>If you are an eligible candidate to receive PDC on the Graduation Day, you will receive an email to start the process of registration.</p>
       <p><b>Being an eligible candidate to receive the PDC during Graduationday, if you do not receive an email for registration or if there is any problem during registration you may mail the same to
-            <a href="mailto:graduationday2019@rvce.edu.in">graduationday2019@rvce.edu.in</a></b></p>
-      <p class="w3-center"><a href="./documents/listofstudents.pdf" target="_blank" class="w3-center">List of eligible students</a></p>
+            graduationday2019@rvce.edu.in</b></p>
+<h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">RULES</span></h5>
     </div>
   </div>
 </div>
 
 <!-- Code of Conduct -->
-<div class="w3-container" id="coc">
+<div class="w3-container" id="rule">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">CODE OF CONDUCT</span></h5>
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">RULES</span></h5>
     <div class="w3-panel w3-leftbar w3-light-grey">
       <p>Graduates are required to occupy their seats branch wise, as per the directions of the department co-coordinators, 30 minutes prior to the commencement of the program. </p>
       <p>When guests enter the venue, all are requested to standup pay respect to the dignitaries.</p>
@@ -118,9 +112,9 @@ body, html {
 </div>
 
 <!-- Directive -->
-<div class="w3-container" id="ins">
+<div class="w3-container" id="directive">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INSTRUCTIONS</span></h5>
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">DIRECTIVE</span></h5>
     <div class="w3-panel w3-leftbar w3-light-grey">
       	<p>Dear Graduating Students</p>
 
@@ -151,25 +145,20 @@ body, html {
 </footer>
 
 <script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
 }
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
 </script>
 
 </body>

@@ -43,7 +43,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="bg-info">
 <div class="container mt-3">
 <div class="row">
 <div class="col-lg-8 col-md-8 col-sm-12 col-12 d-block m-auto">
@@ -51,7 +51,7 @@
   <h3 class="text-info text-center">Graduation Day 2019</h3><hr>
   <h5 class="text-info">Welcome , <strong><?php echo $_SESSION['name'];?></strong></h5>
   <p class="text-secondary">Please give your feedback</p><hr>
-  <form class="form-group" action="feedback.php" method="POST">
+  <form class="form-group text-justify" action="feedback.php" method="POST">
     <?php
       for($i=1;$i<=$cnt;$i=$i+1)
       {
@@ -62,7 +62,8 @@
         <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt1']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt1']) echo "checked";?>> <?php echo $row['opt1']?><br>
         <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt2']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt2']) echo "checked";?>> <?php echo $row['opt2']?><br>
         <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt3']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt3']) echo "checked";?>> <?php echo $row['opt3']?><br>
-        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt4']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt4']) echo "checked";?>> <?php echo $row['opt4']?><hr>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt4']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt4']) echo "checked";?>> <?php echo $row['opt4']?><br>
+        <input type="radio" name="a<?php echo $i?>" value="<?php echo $row['opt5']?>" class="ml-4" <?php if (isset($_POST['submit']) && $_POST['a'.$i]==$row['opt5']) echo "checked";?>> <?php echo $row['opt5']?><hr>
       <?php
         }
     ?>
@@ -86,26 +87,28 @@
 
       $id = 'RVCEGD-'.sprintf("%05d", $cnt);
 
-      $q1 = $_POST['q1'];
       $a1 = $_POST['a1'];
-      $q2 = $_POST['q2'];
       $a2 = $_POST['a2'];
-      $q3 = $_POST['q3'];
       $a3 = $_POST['a3'];
-      $q4 = $_POST['q4'];
       $a4 = $_POST['a4'];
-      $q5 = $_POST['q5'];
       $a5 = $_POST['a5'];
+      $a6 = $_POST['a6'];
+      $a7 = $_POST['a7'];
+      $a8 = $_POST['a8'];
+      $a9 = $_POST['a9'];
+      $a10 = $_POST['a10'];
+      $a11 = $_POST['a11'];
+      $a12 = $_POST['a12'];
       $feedback = $_POST['feedback'];
 
-      if($a1 == '' || $a2 == '' || $a3 == '' || $a4 == '' || $a5 == '')
+      if($a1 == '' || $a2 == '' || $a3 == '' || $a4 == '' || $a5 == '' || $a6 == '' || $a7 == '' || $a8 == '' || $a9 == '' || $a10 == '' || $a11 == '' || $a12 == '')
       {
         $alt = "Please fill all the questions";
         echo "<script type='text/javascript'>alert('$alt');</script>";
       }
       else
       {
-        $query = "UPDATE attendance SET stud_id='$id', q1='$q1', a1='$a1', q2='$q2', a2='$a2', q3='$q3', a3='$a3', q4='$q4', a4='$a4', q5='$q5', a5='$a5', feedback='$feedback' WHERE email='$email'";
+        $query = "UPDATE attendance SET stud_id='$id', a1='$a1', a2='$a2', a3='$a3', a4='$a4', a5='$a5', a6='$a6', a7='$a7', a8='$a8', a9='$a9', a10='$a10', a11='$a11', a12='$a12', feedback='$feedback' WHERE email='$email'";
         $res = $mysqli->query($query) or die(error.__LINE__);
 
         $qry = "SELECT * FROM attendance WHERE email='$email'";
@@ -129,7 +132,9 @@
         $mail->Subject=$sub;
         $mail->Body=$msg;
         $mail->send();
-        header("location: logout.php");
+        ?>
+		<meta http-equiv="Refresh" content="0; url=http://gd.rvce.edu.in/logout.php">
+        <?php
       }
 
     }

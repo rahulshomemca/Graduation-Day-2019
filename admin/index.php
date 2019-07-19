@@ -42,7 +42,7 @@ if(isset($_SESSION['hash']))
 
 </head>
 
-<body>
+<body class="bg-info">
 
 
 
@@ -52,9 +52,9 @@ if(isset($_SESSION['hash']))
 
 <br>
 
-<div class="container testimonial-con">
-
-  <div class="col-lg-6 col-md-6 col-sm-10 col-10 d-block m-auto">
+<div class="container">
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
 
     <div class="card shadow p-4 mb-4 bg-white">
 
@@ -138,12 +138,12 @@ if(isset($_SESSION['hash']))
 
         ?>
 
-        <p class="text-center text-info"><a href="verify.php">Forgot Password?</a></p>
+        <p class="text-center"><a href="verify.php" class="text-info">Forgot Password?</a></p>
 
     </div>
 
   </div>
-
+</div>
 </div>
 
 </body>

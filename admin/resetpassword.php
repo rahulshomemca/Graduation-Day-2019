@@ -6,7 +6,7 @@ session_start();
 
 
 
-  if(!isset($_SESSION['resethash']) && !isset($_SESSION['name_user']))
+  if(!isset($_SESSION['resethash']) || !isset($_SESSION['name_user']))
 
   {
 
@@ -40,7 +40,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="bg-info">
 
 <br>
 
@@ -49,8 +49,8 @@ session_start();
 <br>
 
 <div class="container">
-
-  <div class="col-lg-6 col-md-6 col-sm-10 col-10 d-block m-auto">
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-block m-auto">
 
     <div class="card shadow p-4 mb-4 bg-white">
 
@@ -112,9 +112,9 @@ session_start();
 
                 {
 
-                  echo "<p class='text-center text-success'>Password reseted successfully</p>";
+                  echo "<p class='text-center text-success'>Password changed successfully</p>";
 
-                  header( "refresh:0.5;url=logout.php" );
+                  header( "refresh:0.2;url=logout.php" );
 
                 }
 
@@ -124,12 +124,12 @@ session_start();
 
         ?>
 
-        <p class="text-center text-info"><a href="index.php">Back to login page</a></p>
+        <p class="text-center"><a href="index.php" class="text-info">Back to login page</a></p>
 
     </div>
 
   </div>
-
+</div>
 </div>
 
 </body>

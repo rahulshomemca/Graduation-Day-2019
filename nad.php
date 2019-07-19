@@ -43,7 +43,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="bg-info">
 
 <div class="container text-center mt-3">
 <div class="row">
@@ -76,11 +76,27 @@ session_start();
 
       if(filter_var($pvt_email, FILTER_VALIDATE_EMAIL)){
 
-      if($email == $pvt_email){
+      $whitelist = array("rvce.edu.in");
 
+      function validateEmailDomain($email, $domains) {
+        foreach ($domains as $domain) {
+         $pos = strpos($email, $domain, strlen($email) - strlen($domain));
+
+         if ($pos === false)
+            continue;
+
+         if ($pos == 0 || $email[(int) $pos - 1] == "@" || $email[(int) $pos - 1] == ".")
+            return true;
+         }
+
+         return false;
+      }
+
+      if (validateEmailDomain($pvt_email, $whitelist))
+      {
         ?>
 
-          <p class="text-danger">Please give alternate email id</p>
+          <p class="text-danger">Please give alternate email id, don't use rvce email</p>
 
         <?php
 

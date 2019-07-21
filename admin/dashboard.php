@@ -147,7 +147,7 @@
 
   
 
-<div class="container">
+<div class="container-fluid pl-4 pr-4">
 
   <h5>Welcome , <strong>Admin</strong></h5><br>
 

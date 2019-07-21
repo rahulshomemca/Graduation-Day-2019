@@ -59,7 +59,7 @@ session_start();
 
 <br>
   
-<div class="container">
+<div class="container-fluid pl-4 pr-4">
   <h5>Welcome , <strong>Admin</strong></h5>
   <form method="post" action="export.php" align="right">  
        <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
@@ -71,6 +71,7 @@ session_start();
             <thead>
               <th class="text-center">#</th>
               <th class="text-center">Student ID</th>
+	      <th class="text-center">#ID</th>
               <th class="text-center">Name</th>
               <th class="text-center">USN</th>
               <th class="text-center">Department</th>
@@ -87,6 +88,7 @@ session_start();
       <tr>
         <td class="text-center"><?php echo $i+1 ?></td>
         <td class="text-center"><?php echo $row['stud_id'] ?></td>
+        <td class="text-center"><?php echo $row['id'] ?></td>
         <td class="text-center"><?php echo $row['name'] ?></td>
         <td class="text-center"><?php echo $row['usn'] ?></td>
         <td class="text-center"><?php echo $row['dept'] ?></td>

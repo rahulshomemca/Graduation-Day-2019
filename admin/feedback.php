@@ -62,8 +62,8 @@ session_start();
 
 <br>
   
-<div class="container">
-  <h5>Welcome , <strong>Admin</strong>
+<div class="container-fluid pr-4 pl-4">
+  <h5><strong>Feedback List</strong>
 
   <button type="button" class="btn btn-outline-info float-right" data-toggle="modal" data-target="#myModal">View Questions</button></h5>
 
@@ -139,7 +139,7 @@ session_start();
   <table class="table table-bordered table-striped table-responsive w-100 d-block d-md-table">
             <thead>
               <th class="text-center">#</th> 
-              <th class="text-center" colspan="2">Student and feedback details</th>
+              <th class="text-center" colspan="3">Student and feedback details</th>
             </thead>
     <tbody id="myTable">
     <?php
@@ -148,10 +148,10 @@ session_start();
         $row = $result->fetch_assoc();
         ?>
       <tr>
-        <td class="text-center"><?php echo $i+1 ?></td>
-        <td class="text-left" width="300">
+        <td class="text-center" width="50"><?php echo $i+1 ?></td>
+        <td class="text-left" width="400">
           Id : <b><?php echo $row['stud_id'] ?></b><br>
-          DB_Id : <b><?php echo $row['id'] ?></b><br>
+          DB Id : <b><?php echo $row['id'] ?></b><br>
           Name : <b><?php echo $row['name'] ?></b><br>
           USN : <b><?php echo $row['usn'] ?></b><br>
           Email : <b><?php echo $row['email'] ?></b><br>
@@ -159,9 +159,8 @@ session_start();
           Mobile : <b><?php echo $row['mobile'] ?></b><br>
           Department : <b><?php echo $row['dept'] ?></b><br>
 	  Attending : <b><?php echo $row['attending'] ?></b><br>
-	  <b>Feedback : </b><?php echo $row['feedback'] ?>
         </td>
-        <td class="text-left">
+        <td class="text-left" width="300">
            A1. - <?php echo $row['a1'] ?><br>
            A2. - <?php echo $row['a2'] ?><br>
 	   A3. - <?php echo $row['a3'] ?><br>
@@ -171,9 +170,12 @@ session_start();
            A7. - <?php echo $row['a7'] ?><br>
            A8. - <?php echo $row['a8'] ?><br>
            A9. - <?php echo $row['a9'] ?><br>
+       </td>
+       <td class="text-left" width="400">
            A10. - <?php echo $row['a10'] ?><br>
            A11. - <?php echo $row['a11'] ?><br>
            A12. - <?php echo $row['a12'] ?><br>
+           <b>Feedback : </b><?php echo $row['feedback'] ?>
         </td>
       </tr>
       <?php

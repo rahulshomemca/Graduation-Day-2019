@@ -19,7 +19,7 @@
 
   $mail->Username='graduationday2019@rvce.edu.in';
 
-  $mail->Password='Graduationday@2019';
+  $mail->Password='xxxx';
 
   $mail->setFrom('graduationday2019@rvce.edu.in','Graduation Day 2019');
 

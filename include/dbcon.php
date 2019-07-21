@@ -2,8 +2,8 @@
 //Create Connection
 $db_host = 'localhost';
 $db_name = 'graduationday';
-$db_user = 'graduationday';
-$db_pass = 'graduationday';
+$db_user = 'xxxx';
+$db_pass = 'xxxx';
 
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
